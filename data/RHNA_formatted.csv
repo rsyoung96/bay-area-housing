@@ -1,0 +1,110 @@
+County,Jurisdiction,Very Low,Low,Moderate,Above Moderate,Total
+Alameda,Alameda,444,248,283,748,"1,723"
+Alameda,Albany,80,53,57,145,335
+Alameda,Berkeley,532,442,584,"1,401","2,959"
+Alameda,Dublin,796,446,425,618,"2,285"
+Alameda,Emeryville,276,211,259,752,"1,498"
+Alameda,Fremont,"1,714",926,978,"1,837","5,455"
+Alameda,Hayward,851,480,608,"1,981","3,920"
+Alameda,Livermore,839,474,496,920,"2,729"
+Alameda,Newark,330,167,158,423,"1,078"
+Alameda,Oakland,"2,059","2,075","2,815","7,816","14,765"
+Alameda,Piedmont,24,14,15,7,60
+Alameda,Pleasanton,716,391,407,553,"2,067"
+Alameda,San Leandro,504,270,352,"1,161","2,287"
+Alameda,Union City,317,180,192,417,"1,106"
+Alameda,Unincorporated,430,227,295,817,"1,769"
+Contra Costa,Antioch,349,205,214,680,"1,448"
+Contra Costa,Brentwood,234,124,123,279,760
+Contra Costa,Clayton,51,25,31,34,141
+Contra Costa,Concord,798,444,559,"1,677","3,478"
+Contra Costa,Danville,196,111,124,126,557
+Contra Costa,El Cerrito,100,63,69,166,398
+Contra Costa,Hercules,220,118,100,244,682
+Contra Costa,Lafayette,138,78,85,99,400
+Contra Costa,Martinez,124,72,78,195,469
+Contra Costa,Moraga,75,44,50,60,229
+Contra Costa,Oakley,317,174,175,502,"1,168"
+Contra Costa,Orinda,84,47,54,42,227
+Contra Costa,Pinole,80,48,43,126,297
+Contra Costa,Pittsburg,392,254,316,"1,063","2,025"
+Contra Costa,Pleasant Hill,118,69,84,177,448
+Contra Costa,Richmond,438,305,410,"1,282","2,435"
+Contra Costa,San Pablo,56,53,75,265,449
+Contra Costa,San Ramon,516,279,282,340,"1,417"
+Contra Costa,Walnut Creek,604,355,381,895,"2,235"
+Contra Costa,Unincorporated,374,218,243,532,"1,367"
+Marin,Belvedere,4,3,4,5,16
+Marin,Corte Madera,22,13,13,24,72
+Marin,Fairfax,16,11,11,23,61
+Marin,Larkspur,40,20,21,51,132
+Marin,Mill Valley,41,24,26,38,129
+Marin,Novato,111,65,72,167,415
+Marin,Ross,6,4,4,4,18
+Marin,San Anselmo,33,17,19,37,106
+Marin,San Rafael,240,148,181,438,"1,007"
+Marin,Sausalito,26,14,16,23,79
+Marin,Tiburon,24,16,19,19,78
+Marin,Unincorporated,55,32,37,61,185
+Napa,American Canyon,116,54,58,164,392
+Napa,Calistoga,6,2,4,15,27
+Napa,Napa,185,106,141,403,835
+Napa,St. Helena,8,5,5,13,31
+Napa,Yountville,4,2,3,8,17
+Napa,Unincorporated,51,30,32,67,180
+San Francisco,San Francisco,"6,234","4,639","5,460","12,536","28,869"
+San Mateo,Atherton,35,26,29,3,93
+San Mateo,Belmont,116,63,67,222,468
+San Mateo,Brisbane,25,13,15,30,83
+San Mateo,Burlingame,276,144,155,288,863
+San Mateo,Colma,20,8,9,22,59
+San Mateo,Daly City,400,188,221,541,"1,350"
+San Mateo,East Palo Alto,64,54,83,266,467
+San Mateo,Foster City,148,87,76,119,430
+San Mateo,Half Moon Bay,52,31,36,121,240
+San Mateo,Hillsborough,32,17,21,21,91
+San Mateo,Menlo Park,233,129,143,150,655
+San Mateo,Millbrae,193,101,112,257,663
+San Mateo,Pacifica,121,68,70,154,413
+San Mateo,Portola Valley,21,15,15,13,64
+San Mateo,Redwood City,706,429,502,"1,152","2,789"
+San Mateo,San Bruno,358,161,205,431,"1,155"
+San Mateo,San Carlos,195,107,111,183,596
+San Mateo,San Mateo,859,469,530,"1,242","3,100"
+San Mateo,South San Francisco,565,281,313,705,"1,864"
+San Mateo,Woodside,23,13,15,11,62
+San Mateo,Unincorporated,153,103,102,555,913
+Santa Clara,Campbell,253,138,151,391,933
+Santa Clara,Cupertino,356,207,231,270,"1,064"
+Santa Clara,Gilroy,236,160,217,475,"1,088"
+Santa Clara,Los Altos,169,99,112,97,477
+Santa Clara,Los Altos Hills,46,28,32,15,121
+Santa Clara,Los Gatos,201,112,132,174,619
+Santa Clara,Milpitas,"1,004",570,565,"1,151","3,290"
+Santa Clara,Monte Sereno,23,13,13,12,61
+Santa Clara,Morgan Hill,273,154,185,316,928
+Santa Clara,Mountain View,814,492,527,"1,093","2,926"
+Santa Clara,Palo Alto,691,432,278,587,"1,988"
+Santa Clara,San Jose,"9,233","5,428","6,188","14,231","35,080"
+Santa Clara,Santa Clara,"1,050",695,755,"1,593","4,093"
+Santa Clara,Saratoga,147,95,104,93,439
+Santa Clara,Sunnyvale,"1,640",906,932,"1,974","5,452"
+Santa Clara,Unincorporated,22,13,214,28,277
+Solano,Benicia,94,54,56,123,327
+Solano,Dixon,50,24,30,93,197
+Solano,Fairfield,779,404,456,"1,461","3,100"
+Solano,Rio Vista,45,36,48,170,299
+Solano,Suisun City,147,57,60,241,505
+Solano,Vacaville,287,134,173,490,"1,084"
+Solano,Vallejo,283,178,211,690,"1,362"
+Solano,Unincorporated,26,15,19,43,103
+Sonoma,Cloverdale,39,29,31,112,211
+Sonoma,Cotati,35,18,18,66,137
+Sonoma,Healdsburg,31,24,26,76,157
+Sonoma,Petaluma,199,103,121,322,745
+Sonoma,Rohnert Park,181,107,127,484,899
+Sonoma,Santa Rosa,"1,041",671,759,"2,612","5,083"
+Sonoma,Sebastopol,22,17,19,62,120
+Sonoma,Sonoma,24,23,27,63,137
+Sonoma,Windsor,120,65,67,188,440
+Sonoma,Unincorporated,126,37,160,192,515
