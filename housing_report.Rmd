@@ -1,13 +1,13 @@
 ---
 title: "Evaluating the Bay Area's housing development progress"
-author: "Robert Young"
-date: "2019 July 14"
-output: html_document
 knit: (function(input_file, encoding) {
   out_dir <- 'docs';
   rmarkdown::render(input_file,
  encoding=encoding,
  output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
+author: "Robert Young"
+date: "2019 July 14"
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
@@ -959,3 +959,5 @@ This analysis makes clear that the status quo is not a viable path forward. The 
 ## Acknowledgements
 
 I would like to thank Bill Behrman, Tymor Hamamsy, and Yue Li for their incredible support of this project as part of the [Data Lab](https://datalab.stanford.edu) at Stanford University.
+
+### Suggestions, questions, or comments? [Contact me.](mailto:rsyoung96@gmail.com)
