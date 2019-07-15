@@ -7,7 +7,12 @@ knit: (function(input_file, encoding) {
  output_file=file.path(dirname(input_file), out_dir, 'index.html'))})
 author: "Robert Young"
 date: "2019 July 14"
-output: html_document
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    number_sections: true
+    theme: readable
 ---
 
 ```{r setup, include=FALSE}
@@ -72,9 +77,11 @@ fips_recode <- function(fips) {
 }
 ```
 
-## Introduction
+  
+# Introduction
 
-### Regional Housing Need Allocation
+  
+## Regional Housing Need Allocation
 
 ```{r}
 rhna <- 
@@ -110,6 +117,7 @@ rhna %>%
   ggplot() +
   geom_col(aes(County, total), fill = BAR_COLOR) +
   scale_y_continuous(labels = scales::number_format(big.mark = ",")) +
+  theme(text = element_text(family = "Georgia")) +
   labs(
     x = "County",
     y = "RHNA units",
@@ -137,6 +145,7 @@ rhna %>%
   geom_col(aes(income, units), fill = BAR_COLOR) +
   scale_y_continuous(labels = scales::number_format(big.mark = ",")) +
   scale_x_discrete(labels = c("Above moderate", "Moderate", "Low", "Very low")) +
+  theme(text = element_text(family = "Georgia")) +
   labs(
     x = "Income level",
     y = "RHNA units",
@@ -151,7 +160,8 @@ total_units <- sum(rhna$total, na.rm = TRUE)
 
 Despite the Bay Area [affordable housing crisis](https://www.sfchronicle.com/bayareahousingcrisis/), the RHNA allocates `r scales::percent(amod_units/total_units)` of units for above moderate income residents.
 
-### Building permits
+  
+## Building permits
 
 In order to measure progress toward RHNA goals, ABAG collects [building permit data](http://housing.abag.ca.gov/#permits). These data are currently available for 2014 through 2017, and include location, category (single family, multifamily, second unit, mobile home, etc.), units by income level, and whether the units are located in a priority development area (PDA) and/or transit priority area (TPA). Here, I use only the subset of this data for 2015-2017 to align to the RHNA goals.
 
@@ -224,6 +234,7 @@ treemap_data %>%
     alpha = 0.5, 
     color = "black"
   ) +
+  theme(text = element_text(family = "Georgia")) +
   labs(
     fill = "Category",
     title = "Permits by county and category, 2015-2017",
@@ -264,8 +275,8 @@ jurisdictions <-
   rbind(unincorporated_land %>% select(NAME, GEOID = fipsstco))
 ```
 
-
-### Census data
+  
+## Census data
 
 The American Community Survey (ACS) provides data on all sorts of demographic information. In this case, I can use [ACS 2015](https://www.census.gov/programs-surveys/acs/news/data-releases.2015.html) data to understand relationships between RHNA targets, progress, and each jurisdiction's existing housing stock and population at the beginning of the RHNA process. The top 10 Bay Area jurisdictions in population are shown below. Unincorporated areas include all sections of counties that aren't part of an incorporated town or city.
 
@@ -350,8 +361,8 @@ jurisdictions %>%
 ```
 
 
-
-## Progress in the big three cities
+  
+# Progress in the big three cities
 
 San Jose, San Francisco, and Oakland are the largest cities in the Bay Area, and the three paint a disappointing picture of progress toward RHNA goals. I define housing progress in each income level as the ratio between the number of units permitted in 2015, 2016, and 2017, and the RHNA target. I first scale RHNA targets from the original 2015-2023 eight-year horizon to the new three year horizon by multiplying by 0.375. (Note: the original RHNA targets are in effect from 2015 Jan 31 until 2023 Jan 31, so they include 2015 but not 2023.) I then compare the total permits against this scaled value.
 
@@ -393,6 +404,7 @@ comparison_data %>%
   ) +
   facet_grid(cols = vars(name)) +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  theme(text = element_text(family = "Georgia")) +
   labs(
     x = "Income level",
     y = "Units",
@@ -404,7 +416,8 @@ comparison_data %>%
 
 All three cities have exceeded their RHNA target for above moderate income housing, and both San Francisco and Oakland have exceeded these targets by more than 100%. None of the three cities have come close to their moderate, low, and very low income targets. However, San Francisco has made more progress than the other two cities, achieving 51% of its very low income target and 55% of its low income target.
 
-## Mapping progress across the Bay Area
+  
+# Mapping progress across the Bay Area
 
 ```{r}
 overall_completion <- 
@@ -458,6 +471,7 @@ comparison_summary %>%
       "vlow" = "Very low"
     )
   ) +
+  theme(text = element_text(family = "Georgia")) +
   labs(
     x = "Income level",
     y = "Units",
@@ -528,6 +542,7 @@ comparison_data %>%
   filter(affordability != "total") %>% 
   mutate(prop = actual / rhna) %>% 
   make_map(prop = prop) +
+  theme(text = element_text(family = "Georgia")) +
   labs(
     title = "Bay Area housing development progress in comparison with RHNA targets, 2015-2017",
     subtitle = "Above moderate housing development exceeds targets, but affordable housing development lags behind\n",
@@ -570,7 +585,7 @@ vlow_jurisdictions %>%
 
 While developing very low income housing is beneficial even in small quantities, these successful jurisdictions are making little impact on the larger problem across the Bay Area. Their "success" was likely determined more by their low RHNA targets than their strong development. 
 
-```{r, fig.width = 5, fig.height = 3}
+```{r}
 comparison_data %>% 
   st_drop_geometry() %>% 
   filter(
@@ -606,6 +621,7 @@ comparison_data %>%
       "vlow" = "Very low"
     )
   ) +
+  theme(text = element_text(family = "Georgia")) +
   labs(
     x = "Income level",
     y = "Units",
@@ -615,8 +631,8 @@ comparison_data %>%
   )
 ```
 
-
-## Understanding the geography of RHNA targets
+  
+# Understanding the geography of RHNA targets
 
 ```{r}
 san_mateo_example <- 
@@ -651,6 +667,7 @@ rhna_strength <-
 rhna_strength %>% 
   filter(affordability == "total") %>% 
   make_map(prop = rhna_strength, colors = STRENGTH_COLORS) +
+  theme(text = element_text(family = "Georgia")) +
   labs(
     title = "RHNA target strength for all units compared to Bay Area average",
     subtitle = "Urban core and some farther towns are responsible for most of development\n",
@@ -671,8 +688,8 @@ rhna_strength %>%
   knitr::kable(col.names = c("Jurisdiction", "RHNA Strength"))
 ```
 
-
-## Comparing target strength with development progress
+  
+# Comparing target strength with development progress
 
 Which of these jurisdictions predicted as development hotspots by ABAG are actually hitting the mark? Is development generally following the pattern predicted by ABAG? It's clear that development of above moderate income housing is proceeding faster than scheduled, so I will focus on moderate, low, and very low income housing, which I'll call "affordable" for brevity. 
 
@@ -763,6 +780,7 @@ rhna_affordable_data %>%
       direction = "vertical"
     )
   ) +
+  theme(text = element_text(family = "Georgia")) +
   labs(
     title = "RHNA affordable housing target strength and progress toward target",
     subtitle = "Most jurisdictions have high goals or strong progress, but few have both",
@@ -826,6 +844,7 @@ ggplot() +
     plot.title = element_text(hjust = 0.5),
     plot.subtitle = element_text(hjust = 0.5)
   ) +
+  theme(text = element_text(family = "Georgia")) +
   labs(
     title = "Bay Area jurisdictions with high affordable housing targets\nand high affordable housing development",
     subtitle = "Urban core has high targets, but only more distant towns have met Bay Area goals",
@@ -839,7 +858,8 @@ This map shows that jurisdictions with the highest affordable RHNA target streng
 
 This map demonstrates the deep disconnect between what's needed to confront the affordable housing crisis, i.e. large quantities of higher-density affordable housing in the core Bay Area, versus the results of inaction, i.e. growing sprawl at the edges of the Bay Area. As housing prices rise ever higher in San Francisco, Oakland, San Jose, and the suburbs and cities connecting them, many people searching for affordable housing are pushed farther from their jobs.
 
-## Implications of development on sprawl
+  
+# Implications of development on sprawl
 
 To expand on the issue of sprawl produced by the Bay Area's existing development pattern, I use the ABAG permit data to calculate the proportion of permits in each jurisdition that are located in [transit priority areas](http://opendata.mtc.ca.gov/datasets/d97b4f72543a40b2b85d59ac085e01a0_0) (TPAs). TPAs are defined as areas within 0.5 miles of a major transit stop, which include existing or planned rail or ferry stations, or the intersection of at least two existing or planned high-frequency bus routes. As one might expect, TPAs are common in cities in the core Bay Area with BART, Caltrain, or bus service, but are sparse or nonexistent in more-distant towns.
 
@@ -926,6 +946,7 @@ rhna_strength %>%
     plot.title = element_text(hjust = 0.5),
     plot.subtitle = element_text(hjust = 0.5)
   ) +
+  theme(text = element_text(family = "Georgia")) +
   labs(
     title = "Bay Area proportion of affordable development in transit priority areas (TPA's)",
     subtitle = "Only the core Bay Area is building near transit\n",
@@ -936,7 +957,8 @@ rhna_strength %>%
 
 The results are unsurprising: Marin, Sonoma, Napa, and Solano counties have almost no development near transit, and Contra Costa county has very little. Of the nine jurisdictions with high actual growth strength in affordable housing, only Emeryville and Gilroy have built more than 50% of the units in transit priority areas. Without strong transit access, the new affordable units in the rest of the jurisdictions result in more car commutes, greater levels of low-density suburban sprawl, and higher transportation costs for residents.
 
-## Conclusions and a path forward
+  
+# Conclusions and a path forward
 
 The Bay Area will need to do better to meet the housing needs of its residents. This analysis showed that:
 
@@ -948,7 +970,8 @@ The Bay Area must build more housing aimed at moderate, low, and very low income
 
 This analysis makes clear that the status quo is not a viable path forward. The Bay Area is not adequately meeting its housing goals, and will likely fall far short of meeting growing affordable housing demand over the next several years. The community must take action together in order to improve the Bay Area's commitment to a equitable, sustainable, and prosperous future.
 
-## Data Sources  
+  
+# Data Sources  
 
 * RHNA allocations scraped from [Regional Housing Need Plan, San Francisco Bay Area: 2015-2023](https://abag.ca.gov/planning/housingneeds/pdfs/2015-23_RHNA_Plan.pdf).
 * Building permit data from [Metropolitan Transportation Commission](http://opendata.mtc.ca.gov/datasets/8f95c18719d04416a259854334443f3a_0).
@@ -956,8 +979,10 @@ This analysis makes clear that the status quo is not a viable path forward. The 
 * Bay Area counties geographic data from [DataSF](https://data.sfgov.org/Geographic-Locations-and-Boundaries/Bay-Area-Counties/s9wg-vcph).
 * California jurisdiction data from [Data.gov](https://catalog.data.gov/dataset/tiger-line-shapefile-2016-state-california-current-county-subdivision-state-based).
 
-## Acknowledgements
+  
+# Acknowledgements
 
 I would like to thank Bill Behrman, Tymor Hamamsy, and Yue Li for their incredible support of this project as part of the [Data Lab](https://datalab.stanford.edu) at Stanford University.
 
-### Suggestions, questions, or comments? [Contact me.](mailto:rsyoung96@gmail.com)
+  
+# Suggestions, questions, or comments? [Contact me.](mailto:rsyoung96@gmail.com)
